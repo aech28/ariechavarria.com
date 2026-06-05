@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre mí · Ariadna Echavarría</title>
+<meta name="description" content="Mi enfoque como psiquiatra de adultos y las áreas que trato.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===========================================================
+   Ariadna Echavarría · estilos compartidos
+   =========================================================== */
+:root{
+  --bg:#f5f3ee; --card:#fbfaf6; --ink:#20231f; --muted:#6d6f66;
+  --line:#e2ded3; --accent:#4a6152; --accent-soft:#e8ece6; --maxw:680px;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:"Hanken Grotesk",sans-serif; font-size:17px; line-height:1.72;
+  -webkit-font-smoothing:antialiased; display:flex; flex-direction:column; min-height:100vh;
+}
+
+/* ---------- Idioma ---------- */
+.lang-en{ display:none; }
+body.en .lang-es{ display:none; }
+body.en .lang-en{ display:revert; }
+
+/* ---------- Navegación ---------- */
+.nav{
+  position:sticky; top:0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  padding:.65rem 24px; background:rgba(245,243,238,.92); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.brand{ font-family:"Fraunces",serif; font-size:1.05rem; color:var(--ink); text-decoration:none; white-space:nowrap; }
+.navlinks{ display:flex; align-items:center; gap:1.35rem; }
+.navlinks a{ color:var(--ink); text-decoration:none; font-size:.92rem; }
+.navlinks a:hover{ color:var(--accent); }
+.navlinks a[aria-current="page"]{ color:var(--accent); font-weight:500; }
+.navtoggle{ display:none; background:none; border:0; cursor:pointer; font-size:1.5rem; line-height:1; color:var(--ink); }
+
+.langswitch{ display:flex; gap:2px; background:var(--card); border:1px solid var(--line); border-radius:999px; padding:3px; font-size:.78rem; }
+.langswitch button{ border:0; background:transparent; cursor:pointer; font-family:inherit; color:var(--muted); padding:3px 9px; border-radius:999px; transition:all .2s; }
+.langswitch button.active{ background:var(--accent); color:#fff; }
+.nav-cta{ display:none; }
+.nav .nav-cta{ display:inline-flex; }
+.nav-cta.btn{ color:#fff !important; }
+.nav-cta.btn:hover{ opacity:1; color:#fff !important; }
+.nav-cta .btn{ padding:.65rem 1.4rem; font-size:.92rem; color:#fff !important; }
+
+@media (max-width:780px){
+  .navtoggle{ display:block; }
+  .navlinks{
+    display:none; position:absolute; top:100%; left:0; right:0;
+    flex-direction:column; align-items:flex-start; gap:1.1rem;
+    background:var(--card); border-bottom:1px solid var(--line); padding:1.2rem 24px;
+  }
+  .navlinks.open{ display:flex; }
+}
+
+/* ---------- Layout ---------- */
+.wrap{ width:100%; max-width:var(--maxw); margin:0 auto; padding:0 24px; }
+main{ flex:1 0 auto; }
+.page{ padding:3.2rem 24px 4rem; }
+
+h1{ font-family:"Fraunces",serif; font-weight:400; font-size:clamp(2.3rem,7vw,3.4rem); line-height:1.05; letter-spacing:-.01em; }
+.page-title{ font-size:clamp(2rem,6vw,2.7rem); margin-bottom:1.6rem; }
+h2{ font-family:"Fraunces",serif; font-weight:400; font-style:italic; font-size:1.5rem; color:var(--accent); margin:2.4rem 0 1.1rem; }
+h3{ font-family:"Hanken Grotesk",sans-serif; font-weight:600; font-size:1.02rem; margin-bottom:.45rem; }
+p{ margin-bottom:1rem; color:#2c2f2a; }
+p:last-child{ margin-bottom:0; }
+ul{ margin:.3rem 0 1rem 1.15rem; color:#2c2f2a; }
+li{ margin-bottom:.35rem; }
+a{ color:var(--accent); }
+
+/* ---------- Botones ---------- */
+.btn{ display:inline-block; background:var(--accent); color:#fff; text-decoration:none; font-weight:500; font-size:.98rem; padding:.8rem 1.6rem; border-radius:999px; transition:transform .2s,opacity .2s; }
+.btn:hover{ transform:translateY(-2px); opacity:.92; }
+.btn-outline{ display:inline-block; border:1px solid var(--accent); color:var(--accent); text-decoration:none; font-weight:500; font-size:.92rem; padding:.55rem 1.1rem; border-radius:999px; transition:background .2s,color .2s; }
+.btn-outline:hover{ background:var(--accent); color:#fff; }
+.btnrow{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.4rem; }
+
+/* ---------- Home ---------- */
+.hero{ text-align:center; padding:4rem 24px 2.6rem; }
+.photo{ width:140px; height:140px; border-radius:50%; object-fit:cover; filter:grayscale(100%); border:1px solid var(--line); box-shadow:0 0 0 6px var(--accent-soft); margin-bottom:1.6rem; }
+.hero h1{ margin-bottom:.7rem; }
+.hook{ font-family:"Fraunces",serif; font-style:italic; font-size:1.3rem; color:#3a3d36; max-width:32ch; margin:0 auto 1.1rem; line-height:1.4; }
+.role{ color:var(--muted); font-size:1.02rem; margin-bottom:2rem; }
+
+.intro{ padding:1rem 24px 3.6rem; }
+.intro .lead{ font-size:1.04rem; text-align:center; max-width:52ch; margin:0 auto 2.6rem; color:#33362f; }
+.cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; }
+.card{ display:block; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:1.3rem; text-decoration:none; color:var(--ink); transition:transform .2s,border-color .2s; }
+.card:hover{ transform:translateY(-3px); border-color:var(--accent); }
+.card h3{ color:var(--accent); margin-bottom:.4rem; }
+.card p{ font-size:.92rem; color:var(--muted); margin:0; }
+
+/* ---------- Áreas (dentro de Sobre mí) ---------- */
+.areagroup{ margin-bottom:1.2rem; }
+.glabel{ font-size:.76rem; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); display:block; margin-bottom:.5rem; }
+.pills{ display:flex; flex-wrap:wrap; gap:.5rem; }
+.pill{ background:var(--card); border:1px solid var(--line); border-radius:999px; padding:.45rem .95rem; font-size:.92rem; color:#3a3d36; }
+
+/* ---------- Bloques de pacientes ---------- */
+.block{ padding:1.4rem 0; border-top:1px solid var(--line); }
+.block:first-of-type{ border-top:0; padding-top:0; }
+.block p, .block li{ font-size:.97rem; color:#43463f; }
+.note{ color:var(--muted); font-size:.9rem; margin-top:1.6rem; }
+
+/* ---------- FAQ ---------- */
+details{ border-top:1px solid var(--line); padding:.95rem 0; }
+details:last-of-type{ border-bottom:1px solid var(--line); }
+summary{ cursor:pointer; font-weight:500; list-style:none; display:flex; justify-content:space-between; gap:1rem; }
+summary::-webkit-details-marker{ display:none; }
+summary::after{ content:"+"; color:var(--accent); font-size:1.2rem; line-height:1; }
+details[open] summary::after{ content:"–"; }
+details p{ margin-top:.7rem; font-size:.96rem; color:#43463f; }
+
+/* ---------- Contacto ---------- */
+.reassure{ font-family:"Fraunces",serif; font-style:italic; font-size:1.15rem; color:#3a3d36; margin-bottom:1.6rem; max-width:46ch; }
+.contact-list{ list-style:none; margin:0; }
+.contact-list li{ display:flex; justify-content:space-between; align-items:baseline; gap:1rem; padding:.9rem 0; border-top:1px solid var(--line); }
+.contact-list li:last-child{ border-bottom:1px solid var(--line); }
+.contact-list a{ color:var(--ink); text-decoration:none; font-weight:500; }
+.contact-list a:hover{ color:var(--accent); }
+.contact-list .tag{ color:var(--muted); font-size:.85rem; white-space:nowrap; }
+
+/* ---------- Pie de página ---------- */
+.site-footer{ flex-shrink:0; background:var(--card); border-top:1px solid var(--line); margin-top:3rem; }
+.footer-top{ max-width:var(--maxw); margin:0 auto; padding:3rem 24px 2rem; display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:2rem; }
+.footer-col h4{ font-size:.75rem; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); margin-bottom:.9rem; }
+.footer-brand .fname{ font-family:"Fraunces",serif; font-size:1.15rem; margin-bottom:.4rem; }
+.footer-brand p{ font-size:.9rem; color:var(--muted); margin-bottom:.3rem; }
+.footer-col ul{ list-style:none; margin:0; }
+.footer-col li{ margin-bottom:.5rem; }
+.footer-col a{ color:var(--ink); text-decoration:none; font-size:.92rem; }
+.footer-col a:hover{ color:var(--accent); }
+.footer-cta{ max-width:var(--maxw); margin:0 auto; padding:0 24px 2rem; }
+.footer-bottom{ border-top:1px solid var(--line); }
+.footer-bottom .inner{ max-width:var(--maxw); margin:0 auto; padding:1.2rem 24px; display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem; font-size:.83rem; color:var(--muted); }
+.footer-bottom a{ color:var(--muted); text-decoration:none; }
+.footer-bottom a:hover{ color:var(--accent); }
+.footer-legal{ display:flex; flex-wrap:wrap; gap:1.1rem; }
+
+@media (max-width:680px){
+  .footer-top{ grid-template-columns:1fr 1fr; }
+  .footer-brand{ grid-column:1 / -1; }
+}
+@media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } }
+
+.photo-about{ width:128px; height:128px; border-radius:50%; object-fit:cover; filter:grayscale(100%); border:1px solid var(--line); box-shadow:0 0 0 6px var(--accent-soft); margin-bottom:1.6rem; display:block; }
+</style>
+</head>
+<body id="top">
+<header class="nav">
+  <a class="brand" href="index.html">Ariadna Echavarría</a>
+  <button class="navtoggle" aria-label="Abrir menú" aria-expanded="false" onclick="toggleNav(this)">☰</button>
+  <nav class="navlinks" id="navlinks">
+    <a href="sobre.html"><span class="lang-es">Sobre mí</span><span class="lang-en">About</span></a>
+    <a href="atencion.html"><span class="lang-es">Atención</span><span class="lang-en">Care</span></a>
+    <a href="faq.html">FAQ</a>
+    <a href="contacto.html"><span class="lang-es">Contacto</span><span class="lang-en">Contact</span></a>
+    <a class="nav-cta btn" href="cita.html"><span class="lang-es">Solicita tu cita</span><span class="lang-en">Book now</span></a>
+    <span class="langswitch" role="group" aria-label="Idioma / Language">
+      <button id="btn-es" class="active" onclick="setLang('es')">ES</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </span>
+  </nav>
+</header>
+<main class="wrap page">
+  <img class="photo-about" src="foto.jpg" alt="Ariadna Echavarría Rodríguez" onerror="this.style.display='none'">
+  <h1 class="page-title"><span class="lang-es">Sobre mí</span><span class="lang-en">About me</span></h1>
+  <div class="lang-es">
+    <p>Soy médica especialista en psiquiatría de adultos. Acompaño a personas que atraviesan momentos difíciles con una mirada atenta, comprometida y respetuosa de cada proceso.</p>
+    <p>Trabajo con herramientas clínicas actualizadas y basadas en evidencia, pero también con la convicción de que lo más importante es entender qué necesita cada persona en su contexto.</p>
+    <p>Estudié medicina en la Universidad de Buenos Aires y me formé como psiquiatra en el Hospital de Emergencias Psiquiátricas Torcuato de Alvear.</p>
+  </div>
+  <div class="lang-en">
+    <p>I am a medical doctor specialized in adult psychiatry. I accompany people going through difficult moments with an attentive, committed approach that respects each individual process.</p>
+    <p>I work with up-to-date, evidence-based clinical tools, while holding the conviction that the most important thing is to understand what each person needs in their own context.</p>
+    <p>I studied medicine at the University of Buenos Aires and trained as a psychiatrist at the Torcuato de Alvear Psychiatric Emergency Hospital.</p>
+  </div>
+
+  <h2><span class="lang-es">En qué puedo ayudarte</span><span class="lang-en">How I can help</span></h2>
+  <p style="font-size:.97rem;color:#43463f;"><span class="lang-es">Estas son algunas de las áreas en las que puedo acompañarte:</span><span class="lang-en">These are some of the areas in which I can support you:</span></p>
+  <div style="margin:1.5rem 0;color:#43463f;font-size:.97rem;line-height:1.8;">
+    <p><strong><span class="lang-es">Estado de ánimo</span><span class="lang-en">Mood</span></strong> — <span class="lang-es">depresión, trastorno bipolar, distimia, duelo complicado</span><span class="lang-en">depression, bipolar disorder, dysthymia, complicated grief</span></p>
+    <p><strong><span class="lang-es">Ansiedad</span><span class="lang-en">Anxiety</span></strong> — <span class="lang-es">ansiedad generalizada, pánico, ansiedad social, fobias</span><span class="lang-en">generalized anxiety, panic, social anxiety, phobias</span></p>
+    <p><strong><span class="lang-es">Trauma</span><span class="lang-en">Trauma</span></strong> — <span class="lang-es">TEPT, estrés agudo, trastorno de adaptación</span><span class="lang-en">PTSD, acute stress, adjustment disorder</span></p>
+    <p><strong><span class="lang-es">TOC y relacionados</span><span class="lang-en">OCD and related</span></strong> — <span class="lang-es">TOC, tricotilomanía</span><span class="lang-en">OCD, trichotillomania</span></p>
+    <p><strong><span class="lang-es">Neurodesarrollo</span><span class="lang-en">Neurodevelopment</span></strong> — <span class="lang-es">TDAH</span><span class="lang-en">ADHD</span></p>
+    <p><strong><span class="lang-es">Trastornos de personalidad</span><span class="lang-en">Personality disorders</span></strong></p>
+    <p><strong><span class="lang-es">Insomnio</span><span class="lang-en">Insomnia</span></strong></p>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-col footer-brand">
+      <div class="fname">Ariadna Echavarría Rodríguez</div>
+      <p><span class="lang-es">Médica especialista en psiquiatría de adultos</span><span class="lang-en">Medical doctor specialized in adult psychiatry</span></p>
+      <p><span class="lang-es">Atención online</span><span class="lang-en">Online care</span></p>
+    </div>
+    <div class="footer-col">
+      <h4><span class="lang-es">Contacto</span><span class="lang-en">Contact</span></h4>
+      <ul>
+        <li><a href="https://wa.me/34623976730" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="mailto:info@ariechavarria.com">info@ariechavarria.com</a></li>
+        <li><a href="https://www.doctoralia.es/anade-opinion/ariadna-echavarria-rodriguez#/opinion" target="_blank" rel="noopener">Doctoralia</a></li>
+        <li><a href="https://www.google.com/maps/place//data=!4m3!3m2!1s0x439206bab94fa1d:0xc4fd761ba112bba!12e1?source=g.page.m._&laa=merchant-review-solicitation" target="_blank" rel="noopener">Google</a></li>
+        <li><a href="cita.html"><span class="lang-es">Solicita tu cita</span><span class="lang-en">Book an appointment</span></a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4><span class="lang-es">Secciones</span><span class="lang-en">Sections</span></h4>
+      <ul>
+        <li><a href="sobre.html"><span class="lang-es">Sobre mí</span><span class="lang-en">About</span></a></li>
+        <li><a href="atencion.html"><span class="lang-es">Atención</span><span class="lang-en">Care</span></a></li>
+        <li></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contacto.html"><span class="lang-es">Contacto</span><span class="lang-en">Contact</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="inner">
+      <span>© 2026 Ariadna Echavarría Rodríguez</span>
+      <span class="footer-legal">
+        <a href="aviso-legal.html"><span class="lang-es">Aviso legal</span><span class="lang-en">Legal notice</span></a>
+        <a href="privacidad.html"><span class="lang-es">Privacidad</span><span class="lang-en">Privacy</span></a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function setLang(lang){
+  document.body.classList.toggle('en', lang === 'en');
+  document.documentElement.lang = lang;
+  var es = document.getElementById('btn-es'), en = document.getElementById('btn-en');
+  if(es) es.classList.toggle('active', lang === 'es');
+  if(en) en.classList.toggle('active', lang === 'en');
+  try{ localStorage.setItem('lang', lang); }catch(e){}
+}
+function toggleNav(btn){
+  var n = document.getElementById('navlinks');
+  var open = n.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+function closeNav(){
+  var n = document.getElementById('navlinks'); if(n) n.classList.remove('open');
+  var t = document.querySelector('.navtoggle'); if(t) t.setAttribute('aria-expanded','false');
+}
+(function(){
+  var l = 'es';
+  try{ l = localStorage.getItem('lang') || 'es'; }catch(e){}
+  setLang(l);
+})();
+
+</script>
+</body>
+</html>

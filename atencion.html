@@ -82,9 +82,11 @@ a{ color:var(--accent); }
 /* ---------- Botones ---------- */
 .btn{ display:inline-block; background:var(--accent); color:#fff; text-decoration:none; font-weight:500; font-size:.98rem; padding:.8rem 1.6rem; border-radius:999px; transition:transform .2s,opacity .2s; }
 .btn:hover{ transform:translateY(-2px); opacity:.92; }
-.btn-outline{ display:inline-block; border:1px solid var(--accent); color:var(--accent); text-decoration:none; font-weight:500; font-size:.92rem; padding:.55rem 1.1rem; border-radius:999px; transition:background .2s,color .2s; }
+.btn-outline{ display:inline-block; border:1px solid var(--accent); color:var(--accent); text-decoration:none; font-weight:500; font-size:.92rem; padding:.75rem 1.4rem; border-radius:999px; transition:background .2s,color .2s; }
 .btn-outline:hover{ background:var(--accent); color:#fff; }
 .btnrow{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.4rem; }
+.report-list a.btn-outline{ color:var(--accent); }
+.report-list a.btn-outline:hover{ color:#fff; }
 
 /* ---------- Home ---------- */
 .hero{ text-align:center; padding:4rem 24px 2.6rem; }
@@ -158,6 +160,7 @@ details p{ margin-top:.7rem; font-size:.96rem; color:#43463f; }
 .report-list li{ border-top:1px solid var(--line); }
 .report-list li:last-child{ border-bottom:1px solid var(--line); }
 .report-list a{ display:flex; justify-content:space-between; align-items:baseline; gap:1rem; padding:.85rem 0; text-decoration:none; color:var(--ink); transition:color .2s; }
+.report-list a.btn-outline{ display:inline-block; padding:.75rem 1.4rem; color:var(--accent); }
 .report-list a:hover{ color:var(--accent); }
 .report-list a:hover .rmeta{ color:var(--accent); }
 .report-list .rname{ font-weight:600; font-size:.97rem; }
@@ -209,12 +212,6 @@ details p{ margin-top:.7rem; font-size:.96rem; color:#43463f; }
   </div>
 
   <div class="block">
-    <h3><span class="lang-es">Recetas</span><span class="lang-en">Prescriptions</span></h3>
-    <p class="lang-es">Las recetas se gestionan durante las consultas. En cada sesión se calcula la medicación hasta la próxima cita, por eso conviene reservar con anticipación. Una vez emitida la receta, tienes 10 días naturales para retirar la medicación en farmacia. Para mayor comodidad puedes descargar la <a href="https://rempe.es/pacientes/" target="_blank" rel="noopener">app Rempe</a>.</p>
-    <p class="lang-en">Prescriptions are managed during consultations. In each session we work out enough medication to last until the next appointment, so it's best to book in advance. Once the prescription is issued, you have 10 days to pick up the medication at the pharmacy. For your convenience, you can download the <a href="https://rempe.es/pacientes/" target="_blank" rel="noopener">Rempe app</a>.</p>
-  </div>
-
-  <div class="block">
   <h3><span class="lang-es">Informes</span><span class="lang-en">Medical reports</span></h3>
   <ul class="report-list" style="border-bottom: none;">
     <li style="display:block; padding:1rem 0; border-top: none; border-bottom: none;">
@@ -223,12 +220,12 @@ details p{ margin-top:.7rem; font-size:.96rem; color:#43463f; }
           <span class="lang-es">Informe breve <span style="font-weight:400; color:var(--muted); font-size:.88rem;">(48 hs hábiles)</span></span>
           <span class="lang-en">Brief report <span style="font-weight:400; color:var(--muted); font-size:.88rem;">(48 business hours)</span></span>
         </span>
-        <a href="https://buy.stripe.com/dRm14n7TJ7zz3Hp0hx4ZG03" target="_blank" rel="noopener" class="rmeta" style="white-space:nowrap;">
-          <span class="lang-es">Solicitar →</span><span class="lang-en">Request →</span>
-        </a>
       </div>
-      <p class="lang-es" style="font-size:.93rem; color:var(--muted); margin:0;">Resumen conciso del proceso para usos puntuales: bajas, trámites médicos o administrativos. Recoge los datos esenciales sin desarrollar el contenido de las sesiones.</p>
-      <p class="lang-en" style="font-size:.93rem; color:var(--muted); margin:0;">A concise summary for specific needs: sick leave, medical or administrative procedures. Covers the essential information without detailing session content.</p>
+      <p class="lang-es" style="font-size:.93rem; color:var(--muted); margin:0 0 .85rem 0;">Resumen conciso del proceso para usos puntuales: bajas, trámites médicos o administrativos. Recoge los datos esenciales sin desarrollar el contenido de las sesiones.</p>
+      <p class="lang-en" style="font-size:.93rem; color:var(--muted); margin:0 0 .85rem 0;">A concise summary for specific needs: sick leave, medical or administrative procedures. Covers the essential information without detailing session content.</p>
+      <div class="btnrow">
+        <a class="btn-outline" href="https://buy.stripe.com/dRm14n7TJ7zz3Hp0hx4ZG03" target="_blank" rel="noopener"><span class="lang-es">Solicitar informe breve</span><span class="lang-en">Request brief report</span></a>
+      </div>
     </li>
     <li style="display:block; padding:1rem 0; border-top: 1px solid var(--line); border-bottom: none;">
       <div style="display:flex; justify-content:space-between; align-items:baseline; gap:1rem; margin-bottom:.5rem;">
@@ -236,15 +233,21 @@ details p{ margin-top:.7rem; font-size:.96rem; color:#43463f; }
           <span class="lang-es">Informe detallado <span style="font-weight:400; color:var(--muted); font-size:.88rem;">(7 días hábiles)</span></span>
           <span class="lang-en">Detailed report <span style="font-weight:400; color:var(--muted); font-size:.88rem;">(7 business days)</span></span>
         </span>
-        <a href="https://buy.stripe.com/6oUdR94Hx5rrcdV4xN4ZG04" target="_blank" rel="noopener" class="rmeta" style="white-space:nowrap;">
-          <span class="lang-es">Solicitar →</span><span class="lang-en">Request →</span>
-        </a>
       </div>
-      <p class="lang-es" style="font-size:.93rem; color:var(--muted); margin:0;">Elaboración de un informe clínico completo sobre tu proceso terapéutico: historia, evolución y situación actual. No es una valoración pericial.</p>
-      <p class="lang-en" style="font-size:.93rem; color:var(--muted); margin:0;">A full clinical report covering your therapeutic process: history, progress, and current situation. It is not a legal or expert assessment.</p>
+      <p class="lang-es" style="font-size:.93rem; color:var(--muted); margin:0 0 .85rem 0;">Elaboración de un informe clínico completo sobre tu proceso terapéutico: historia, evolución y situación actual. No es una valoración pericial.</p>
+      <p class="lang-en" style="font-size:.93rem; color:var(--muted); margin:0 0 .85rem 0;">A full clinical report covering your therapeutic process: history, progress, and current situation. It is not a legal or expert assessment.</p>
+      <div class="btnrow">
+        <a class="btn-outline" href="https://buy.stripe.com/6oUdR94Hx5rrcdV4xN4ZG04" target="_blank" rel="noopener"><span class="lang-es">Solicitar informe detallado</span><span class="lang-en">Request detailed report</span></a>
+      </div>
     </li>
   </ul>
 </div>
+
+  <div class="block">
+    <h3><span class="lang-es">Recetas</span><span class="lang-en">Prescriptions</span></h3>
+    <p class="lang-es">Las recetas se gestionan durante las consultas. En cada sesión se calcula la medicación hasta la próxima cita, por eso conviene reservar con anticipación. Una vez emitida la receta, tienes 10 días naturales para retirar la medicación en farmacia. Para mayor comodidad puedes descargar la <a href="https://rempe.es/pacientes/" target="_blank" rel="noopener">app Rempe</a>.</p>
+    <p class="lang-en">Prescriptions are managed during consultations. In each session we work out enough medication to last until the next appointment, so it's best to book in advance. Once the prescription is issued, you have 10 days to pick up the medication at the pharmacy. For your convenience, you can download the <a href="https://rempe.es/pacientes/" target="_blank" rel="noopener">Rempe app</a>.</p>
+  </div>
 
   <div class="block">
     <h3><span class="lang-es">Modificaciones y cancelaciones</span><span class="lang-en">Modifications and cancellations</span></h3>
